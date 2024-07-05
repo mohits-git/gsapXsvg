@@ -74,7 +74,7 @@
             </g>
             <g>
                 <path class="dotsstro2"
-                    style="opacity: 1; fill: none; stroke: rgb(255, 255, 255); stroke-width: 2; stroke-miterlimit: 10;"
+                    style="opacity: 1; fill: none; stroke: transparent; stroke-width: 2; stroke-miterlimit: 10;"
                     d="M206.8,29c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6 -6S 210.1,29, 206.8,29 z M206.8"></path>
             </g>
         </g>
@@ -85,7 +85,7 @@
             </g>
             <g>
                 <path class="dotsstro3"
-                    style="opacity: 1; fill: none; stroke: rgb(255, 255, 255); stroke-width: 2; stroke-miterlimit: 10;"
+                    style="opacity: 1; fill: none; stroke: transparent; stroke-width: 2; stroke-miterlimit: 10;"
                     d="M332,85 c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6 -6 S 335,85, 332,85 z M332"></path>
             </g>
         </g>
@@ -96,7 +96,7 @@
             </g>
             <g>
                 <path class="dotsstro4"
-                    style="opacity: 1; fill: none; stroke: rgb(255, 255, 255); stroke-width: 2; stroke-miterlimit: 10;"
+                    style="opacity: 1; fill: none; stroke: transparent; stroke-width: 2; stroke-miterlimit: 10;"
                     d="M380,205 c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6 -6 S 383,205, 380,205 z M380"></path>
             </g>
         </g>
@@ -107,7 +107,7 @@
             </g>
             <g>
                 <path class="dotsstro5"
-                    style="opacity: 1; fill: none; stroke: rgb(255, 255, 255); stroke-width: 2; stroke-miterlimit: 10;"
+                    style="opacity: 1; fill: none; stroke: transparent; stroke-width: 2; stroke-miterlimit: 10;"
                     d="M335,315 c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6 -6 S 340,315, 335,315 z M335"></path>
             </g>
         </g>
@@ -118,7 +118,7 @@
             </g>
             <g>
                 <path class="dotsstro6"
-                    style="opacity: 1; fill: none; stroke: rgb(255, 255, 255); stroke-width: 2; stroke-miterlimit: 10;"
+                    style="opacity: 1; fill: none; stroke: transparent; stroke-width: 2; stroke-miterlimit: 10;"
                     d="M210,375 c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6 -6 S 215,375, 210,375 z M210"></path>
             </g>
         </g>
@@ -129,7 +129,7 @@
             </g>
             <g>
                 <path class="dotsstro7"
-                    style="opacity: 1; fill: none; stroke: rgb(255, 255, 255); stroke-width: 2; stroke-miterlimit: 10;"
+                    style="opacity: 1; fill: none; stroke: transparent; stroke-width: 2; stroke-miterlimit: 10;"
                     d="M88,324 c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6 -6 S 92,324, 88,324 z M88"></path>
             </g>
         </g>
@@ -174,6 +174,31 @@
         dots.forEach((dot, index) => {
             dotsTl.to(dot, {
                 fill: 'rgb(0, 146, 255)',
+                duration: 0.5,
+                ease: "power4.in",
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: `#page${index}`,
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: true,
+                    pin: true,
+                }
+            });
+        });
+        const dotsStroke = [
+            document.querySelector('.dotsstro1'),
+            document.querySelector('.dotsstro2'),
+            document.querySelector('.dotsstro3'),
+            document.querySelector('.dotsstro4'),
+            document.querySelector('.dotsstro5'),
+            document.querySelector('.dotsstro6'),
+            document.querySelector('.dotsstro7'),
+        ];
+        const dotsStrokeTl = gsap.timeline();
+        dotsStroke.forEach((dotStroke, index) => {
+            dotsStrokeTl.to(dotStroke, {
+                stroke: 'rgb(255, 255, 255)',
                 duration: 0.5,
                 ease: "power4.in",
                 opacity: 1,
